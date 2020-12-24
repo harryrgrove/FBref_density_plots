@@ -131,7 +131,7 @@ def densityplot(ax, df=all_data, stat='shots_total_per90', season=2020, pos='FW'
 
 
 # Draws array of subplots of densityplots for players and stats
-def profile(players=('g', 'Erling'),
+def profile(players=('Mbappé', 'Erling'),
             years=(2020, 2020),
             stats=('npxg_per90', 'npxg_per_shot','xa_per90','sca_passes_per90', 'sca_dribbles_per90'),
             stat_names=('Non-Penalty xG', 'NPxG per Shot', 'xA', 'Shot-Creating Passes', 'Shot-Creating Dribbles'),
@@ -152,11 +152,9 @@ def profile(players=('g', 'Erling'),
                         index_col=0).loc[player]['player'] + ' statistical profile (' + str(years[i]) + '-' + str(
                 years[i] + 1)[-2:] + ')') # Add title on top subplots
         for j in range(len(stats)):
-            ax[j, i].set_xlabel(stat_names[i]) # Label plots
-
+            ax[j, i].set_xlabel(stat_names[j]) # Label plots
     plt.tight_layout()
     plt.show()
-
 
 
 profile(players=('Mbappé', 'Erling'),
@@ -164,3 +162,33 @@ profile(players=('Mbappé', 'Erling'),
         stats=('npxg_per90', 'npxg_per_shot','xa_per90','sca_passes_per90', 'sca_dribbles_per90'),
         stat_names=('Non-Penalty xG', 'NPxG per Shot', 'xA', 'Shot-Creating Passes', 'Shot-Creating Dribbles'),
         cmap='RdYlBu')
+
+profile(players=('Harry Kane', 'Harry Kane'),
+        years=(2019, 2020),
+        stats=('npxg_per90', 'npxg_per_shot','sca_per90','xa_per90'),
+        stat_names=('Non-Penalty xG', 'NPxG per Shot', 'Shot-Creating Actions', 'xA'),
+        cmap='summer')
+
+profile(players=('Pierre-Emerick Aubameyang', 'Pierre-Emerick Aubameyang'),
+        years=(2018, 2020),
+        stats=('npxg_per90', 'npxg_per_shot','normalised_finishing','xa_per90'),
+        stat_names=('Non-Penalty xG', 'NPxG per Shot', 'Goals per NPxG', 'xA'),
+        cmap='YlOrRd')
+
+profile(players=('Lionel Messi', 'Lionel Messi'),
+        years=(2017, 2020),
+        stats=('npxg_per90', 'npxg_per_shot','xa_per90','sca_passes_per90','carry_progressive_distance_per90','normalised_finishing'),
+        stat_names=('Non-Penalty xG', 'NPxG per Shot', 'xA', 'Shot-Creating Passes','Progressive Carry Distance','Goals per NPxG'),
+        cmap='CMRmap')
+
+profile(players=('Salah', 'Mané', 'Firmino', 'Diogo Jota'),
+        years=(2020, 2020, 2020, 2020),
+        stats=('npxg_per90', 'npxg_per_shot','sca_per90','carry_progressive_distance_per90', 'pressures_att_3rd_per90'),
+        stat_names=('Non-Penalty xG', 'NPxG per Shot', 'Shot-Creating Actions', 'Progressive Carry Distance', 'Final Third Pressures'),
+        cmap='autumn')
+
+profile(players=('Daniel Podence', 'Pedro Neto', 'Adama Traoré'),
+        years=(2020, 2020, 2020),
+        stats=('npxg_per90', 'npxg_per_shot','xa_per90','players_dribbled_past_per90', 'nutmegs_per90'),
+        stat_names=('Non-Penalty xG', 'NPxG per Shot', 'xA', 'Players Dribbled Past', 'Nutmegs'),
+        cmap='Wistia')
