@@ -177,13 +177,13 @@ def animate_profile(players=('Lionel Messi', 'Lookman'),
         if prop <= 0.5:
             ax[0].text(0.5, 1,
                        pd.read_csv(str(years[0])[-2:] + str(int(str(years[0])[-2:]) + 1) + '_Outfield.csv', sep='\t',
-                                   index_col=0).loc[players[0]]['player'] + ' {}-{}'.format(str(years[0])[-2:], str(
+                                   index_col=0).loc[players[0]]['player'] + ' {}/{}'.format(str(years[0])[-2:], str(
                            int(str(years[0])[-2:]) + 1)), color=np.array([0, 0, 0]) + prop * 2, zorder=6,
                        transform=ax[0].transAxes, ha='center', va='bottom')
         if prop > 0.5:
             ax[0].text(0.5, 1,
                        pd.read_csv(str(years[1])[-2:] + str(int(str(years[1])[-2:]) + 1) + '_Outfield.csv', sep='\t',
-                                   index_col=0).loc[players[1]]['player'] + ' {}-{}'.format(str(years[1])[-2:], str(
+                                   index_col=0).loc[players[1]]['player'] + ' {}/{}'.format(str(years[1])[-2:], str(
                            int(str(years[1])[-2:]) + 1)), color=np.array([0, 0, 0]) + (1 - prop) * 2, zorder=6,
                        transform=ax[0].transAxes, ha='center', va='bottom')
 
